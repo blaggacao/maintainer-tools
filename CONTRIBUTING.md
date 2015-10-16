@@ -59,8 +59,9 @@ A module is organised in a few directory:
 
 ### File naming
 
-For `models`, `views` and `data` declarations, split files by the model
-involved, either created or inherited. These files should be named after the
+For `models`, `views` and `data` declarations, split files so that you get 
+one file per model, no matter if it's inherited or created. 
+These files should be named after the
 model. For example, demo data for res.partner should go in a file named
 demo/res_partner.xml and a view for partner should go in a file named
 views/res_partner.xml.
@@ -135,7 +136,7 @@ addons/<my_module_name>/
     `-- <wizard_model>.xml
 ```
 
-Filename should only use only `[a-z0-9_]`
+Filenames should use only `[a-z0-9_]`
 
 Use correct file permissions: folder 755 and file 644.
 
@@ -463,10 +464,10 @@ class...
     * Onchange method: the onchange method pattern is `_onchange_<field_name>`
     * Constraint method: the constraint method pattern is
       `_check_<constraint_name>`
-    * Action method: an object action method is prefix with `action_`.
+    * Action method: an object action method is prefixed with `action_`.
       Its decorator is `@api.multi`, but since it use only one record, add
       `self.ensure_one()` at the beginning of the method.
-    * `@api.one` method: For v8 is recommended use `@api.multi` and avoid use `@api.one`, for compatibility with v9 where is deprecated `@api.one`.
+    * `@api.one` method: For v8, it is recommended to use `@api.multi` and, for compatibility with v9, avoid using `@api.one`. It is deprecated in v9`.
 
 * Default functions should be declared with a lambda call on self. The reason
   for this is so a default function can be inherited. Assigning a function
